@@ -13,7 +13,7 @@ private:
     }
 
 public:
-    Stats()=default;
+    Stats() : Church(50), People(50), Army(50), Money(50) {}
     Stats(int Church, int People, int Army, int Money): Church(Church), People(People), Army(Army), Money(Money) {
     }
     int getChurch() const { return Church; }
@@ -52,8 +52,8 @@ private:
     std::array<int, 4> right_stat_update;
 
 public:
-    Card(int id, std::string const question, std::string const left_option, std::string const right_option,
-         std::array<int, 4> const &left_stat_update, std::array<int, 4> const &right_stat_update) {
+    Card(int id,std::string const& question,std::string const& left_option, std::string const& right_option,
+         std::array<int, 4> const& left_stat_update, std::array<int, 4> const & right_stat_update) {
         this->id = id;
         this->question = question;
         this->left_option = left_option;
@@ -111,7 +111,7 @@ private:
     Stats stats;
 
 public:
-    Kingdom(std::string name, Stats stats) {
+    Kingdom(std::string const& name, Stats const& stats) {
         this->name = name;
         this->stats = stats;
     }
