@@ -180,32 +180,32 @@ int main() {
     deck.displaycards();
     std::cout << "Bun venit, rege!" << std::endl;
     int turn = 1;
-    while (!k.lost_game() && turn!=10) {
-        std::cout << "Tura " << turn++ << std::endl;
+    bool auto_mode = true; 
+
+    while (!k.lost_game()) {
+        std::cout << "\n---------------------------\n";
+        std::cout << "Turn " << turn++ << std::endl;
 
         const Card& card = deck.draw_random_card();
         card.display_question();
 
         int choice;
-        std::cout << "Alegerea ta (1 sau 2): ";
-        std::cin >> choice;
-
-        while (choice != 1 && choice != 2) {
-            std::cout << "Poti introduce doar 1 sau 2";
+        if (auto_mode) {
+            choice = 1 + rand() % 2; 
+            std::cout << "Auto choice: " << choice << std::endl;
+        } else {
+            std::cout << "Alegerea ta (1 sau 2): ";
             std::cin >> choice;
         }
-
         k.Card_Effect(card, choice);
-
         std::cout << "\n Starea regatului:\n" << k << std::endl;
 
         if (k.lost_game()) {
-            std::cout << "\n Ai pierdut tronul!" << std::endl;
+            std::cout << "\n Ai murit" << std::endl;
             break;
         }
     }
-    if (turn==10) {
-        std::cout << "\n Ai castigat" << std::endl;
-    }else std::cout << "\nGame over\n";
+
+    else std::cout << "\nGame over\n";
     return 0;
 }
