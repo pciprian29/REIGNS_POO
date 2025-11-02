@@ -13,7 +13,7 @@ private:
     }
 
 public:
-    Stats() = default;
+    Stats();
     Stats(int Church, int People, int Army, int Money): Church(Church), People(People), Army(Army), Money(Money) {
     }
     int getChurch() const { return Church; }
