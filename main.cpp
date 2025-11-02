@@ -10,7 +10,7 @@ private:
 
     int limite(int x) const {
         return std::max(0, std::min(100, x));
-    }
+    } 
 
 public:
     Stats() : Church(50), People(50), Army(50), Money(50) {}
