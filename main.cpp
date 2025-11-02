@@ -148,7 +148,7 @@ public:
 };
 
 int main() {
-    srand(time(nullptr));
+    srand(time(nullptr));   
     Stats s(50, 50, 50, 50);
     Kingdom k("Dacia", s);
     Deck deck;
@@ -174,6 +174,9 @@ int main() {
     deck.addCard(Card(6,"Minerii au dat de aur!",
                         "Pastreaza aurul","Imparte aurul",
                         {0,0,0,+20},{+5,+5,+5,+5}));
+    deck.addCard(Card(7,"A venit armagedonu",
+                        "Aualeu", "Aualeu",
+                        {0,-100,0,0},{0,-100,0,0}));
     deck.displaycards();
     std::cout << "Bun venit, rege!" << std::endl;
     int turn = 1;
