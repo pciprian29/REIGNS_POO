@@ -10,7 +10,7 @@ private:
 
     int limite(int x) const {
         return std::max(0, std::min(100, x));
-    } 
+    }
 
 public:
     Stats() : Church(50), People(50), Army(50), Money(50) {}
@@ -148,7 +148,7 @@ public:
 };
 
 int main() {
-    srand(time(nullptr));   
+    srand(time(nullptr));
     Stats s(50, 50, 50, 50);
     Kingdom k("Dacia", s);
     Deck deck;
@@ -180,7 +180,7 @@ int main() {
     deck.displaycards();
     std::cout << "Bun venit, rege!" << std::endl;
     int turn = 1;
-    while (!k.lost_game()) {
+    while (!k.lost_game() && turn!=10) {
         std::cout << "Tura " << turn++ << std::endl;
 
         const Card& card = deck.draw_random_card();
@@ -204,7 +204,8 @@ int main() {
             break;
         }
     }
-
-    std::cout << "\nGame over\n";
+    if (turn==10) {
+        std::cout << "\n Ai castigat" << std::endl;
+    }else std::cout << "\nGame over\n";
     return 0;
 }
