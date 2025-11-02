@@ -13,21 +13,12 @@ private:
     }
 
 public:
+    Stats() = default;
     Stats(int Church, int People, int Army, int Money): Church(Church), People(People), Army(Army), Money(Money) {
     }
-
-    Stats() = default;
-
-    void setChurch(int value) { this->Church = value; }
     int getChurch() const { return Church; }
-
-    void setPeople(int value) { this->People = value; }
     int getPeople() const { return People; }
-
-    void setArmy(int value) { this->Army = value; }
     int getArmy() const { return Army; }
-
-    void setMoney(int value) { this->Money = value; }
     int getMoney() const { return Money; }
 
     friend std::ostream &operator<<(std::ostream &os, const Stats &s) {
