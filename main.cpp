@@ -191,7 +191,7 @@ int main() {
 
         int choice;
         if (auto_mode) {
-            choice = 1 + rand() % 2; 
+            choice = 1 + rand() % 2;
             std::cout << "Auto choice: " << choice << std::endl;
         } else {
             std::cout << "Alegerea ta (1 sau 2): ";
@@ -206,6 +206,6 @@ int main() {
         }
     }
 
-    else std::cout << "\nGame over\n";
+    std::cout << "\nGame over\n";
     return 0;
 }
