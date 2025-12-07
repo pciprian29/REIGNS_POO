@@ -20,7 +20,7 @@ void GameManager::triggerRandomEvent(Kingdom &k) {
     ev->apply(k);
 
     if (auto warEv = dynamic_cast<WarEvent*>(ev)) {
-        std::cout << "WarEvent was active (detected via dynamic_cast)\n";
+        std::cout << "WarEvent" <<warEv->getName() <<"activ (dynamic_cast)\n";
     }
 }
 
@@ -28,3 +28,4 @@ void GameManager::listEvents() const {
     std::cout << "Events available: " << events_.size() << '\n';
     for (const auto &e : events_) e->print();
 }
+
