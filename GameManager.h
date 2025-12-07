@@ -17,5 +17,5 @@ public:
 
     void addEvent(std::unique_ptr<BaseEvent> ev);
     void triggerRandomEvent(Kingdom &k);
-    void listEvents() const;
 };
+
