@@ -15,7 +15,7 @@ void GameManager::triggerRandomEvent(Kingdom &k) {
     if (events_.empty()) return;
     std::uniform_int_distribution<std::size_t> dist(0, events_.size() - 1);
     std::size_t idx = dist(rng_);
-    BaseEvent* const ev = events_[idx].get();
+    const BaseEvent* ev = events_[idx].get();
     ev->print();
     ev->apply(k);
 
@@ -23,6 +23,7 @@ void GameManager::triggerRandomEvent(Kingdom &k) {
     std::cout << "War Event cu intensitate: " << warEv->getIntensity() << "\n";
 }
 }
+
 
 
 
