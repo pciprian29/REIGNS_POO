@@ -24,8 +24,5 @@ void GameManager::triggerRandomEvent(Kingdom &k) {
     }
 }
 
-void GameManager::listEvents() const {
-    std::cout << "Events available: " << events_.size() << '\n';
-    for (const auto &e : events_) e->print();
-}
+
 
