@@ -13,5 +13,5 @@ public:
 
     void addCard(const Card &card);
     const Card &draw_random_card() const;
-    void displaycards() const;
+
 };
