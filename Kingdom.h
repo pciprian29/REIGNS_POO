@@ -22,5 +22,5 @@ public:
         k.displayStatus(os); return os;
     }
 
-    const Stats &stats() const { return stats_; }
 };
+
