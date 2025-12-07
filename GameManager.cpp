@@ -20,9 +20,10 @@ void GameManager::triggerRandomEvent(Kingdom &k) {
     ev->apply(k);
 
     if (auto warEv = dynamic_cast<WarEvent*>(ev)) {
-        std::cout << "WarEvent" <<warEv->getName() <<"activ (dynamic_cast)\n";
-    }
+    std::cout << "War Event cu intensitate: " << warEv->getIntensity() << "\n";
 }
+}
+
 
 
 
