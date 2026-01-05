@@ -1,4 +1,6 @@
-# Nu primesc notă pentru că nu am pus titlu și descriere
+# REIGNS
+
+In REIGNS jucatorul trebuie sa conduca un regat. Intreaga poveste se deruleaza prin intermediul unor cartonase care au atribuite o stiuatie si cate 2 decizii. Fiecare decizie infulenteaza in mod negativ sau pozitiv cele 4 "stat-uri" ale regatului. In momentul in care oricare dintre acestea fie ajunge la 0, fie la maxim, jocul se va termina.
 
 ### Folosiți template-ul corespunzător grupei voastre!
 
