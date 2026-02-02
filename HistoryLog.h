@@ -7,7 +7,7 @@ class HistoryLog {
 private:
     std::vector<T> logs;
 public:
-    void addEntry(T entry) {
+    void addEntry(const T& entry) {
         logs.push_back(entry);
     }
 
@@ -16,4 +16,5 @@ public:
             std::cout << "[Log]: " << entry << std::endl;
         }
     }
+
 };
