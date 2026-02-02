@@ -31,7 +31,7 @@ int main() {
 
         Deck deck;
         initializeDeck(deck);
-
+        
 
         GameManager& gm = GameManager::getInstance();
 
@@ -50,7 +50,8 @@ int main() {
         bool auto_mode = (std::getenv("GITHUB_ACTIONS") != nullptr);
         int turn = 1;
         int max_turns = 50;
-
+        gm.listEvents();
+        
         while (!k.isFallen() && turn <= max_turns) {
             std::cout << "\nTurn " << turn++ << '\n';
 
