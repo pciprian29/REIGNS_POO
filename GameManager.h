@@ -9,13 +9,22 @@
 
 class GameManager {
 private:
-    std::vector<std::unique_ptr<BaseEvent>> events_;
+    std::vector<std::unique_ptr<BaseEvent> > events_;
     std::mt19937 rng_;
-public:
+
+    static GameManager *instance_;
     GameManager();
+    GameManager(const GameManager &) = delete;
+    GameManager &operator=(const GameManager &) = delete;
+
+public:
+    static GameManager &getInstance();
+
     ~GameManager() = default;
 
     void addEvent(std::unique_ptr<BaseEvent> ev);
-    void triggerRandomEvent(Kingdom &k);
-};
 
+    void triggerRandomEvent(Kingdom &k);
+
+    void listEvents() const;
+};
