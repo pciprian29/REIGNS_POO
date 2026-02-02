@@ -21,6 +21,8 @@ public:
     friend std::ostream &operator<<(std::ostream &os, const Kingdom &k) {
         k.displayStatus(os); return os;
     }
+    const Stats& stats() const { return stats_; }
 
 };
+
 
