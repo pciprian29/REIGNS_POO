@@ -2,9 +2,9 @@
 #include <iostream>
 #include <chrono>
 
-GameManager *GameManager::instance_ = nullptr;
+GameManager* GameManager::instance_ = nullptr;
 
-GameManager &GameManager::getInstance() {
+GameManager& GameManager::getInstance() {
     if (instance_ == nullptr) {
         instance_ = new GameManager();
     }
@@ -22,22 +22,22 @@ void GameManager::addEvent(std::unique_ptr<BaseEvent> ev) {
 
 void GameManager::triggerRandomEvent(Kingdom &k) {
     if (events_.empty()) return;
-
+    
     std::uniform_int_distribution<std::size_t> dist(0, events_.size() - 1);
     std::size_t idx = dist(rng_);
-
-    BaseEvent *ev = events_[idx].get();
+    
+    BaseEvent* ev = events_[idx].get();
     ev->print();
     ev->apply(k);
 
-    if (auto warEv = dynamic_cast<WarEvent *>(ev)) {
-        std::cout << "WarEvent active (detected via dynamic_cast)\n";
+    if (auto warEv = dynamic_cast<WarEvent*>(ev)) {
+        std::cout << "WarEvent active. Pointer: " << warEv << "\n";
     }
 }
 
 void GameManager::listEvents() const {
     std::cout << "Events available: " << events_.size() << '\n';
-    for (const auto &e: events_) {
+    for (const auto &e : events_) {
         e->print();
     }
 }
