@@ -30,7 +30,7 @@ void GameManager::triggerRandomEvent(Kingdom &k) {
     ev->print();
     ev->apply(k);
 
-    if (auto warEv = dynamic_cast<WarEvent*>(ev)) {
+    if (const auto* warEv = dynamic_cast<WarEvent*>(ev)) {
         std::cout << "WarEvent active. Pointer: " << warEv << "\n";
     }
 }
@@ -41,3 +41,4 @@ void GameManager::listEvents() const {
         e->print();
     }
 }
+
