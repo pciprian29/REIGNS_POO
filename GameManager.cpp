@@ -2,6 +2,15 @@
 #include <iostream>
 #include <chrono>
 
+GameManager *GameManager::instance_ = nullptr;
+
+GameManager &GameManager::getInstance() {
+    if (instance_ == nullptr) {
+        instance_ = new GameManager();
+    }
+    return *instance_;
+}
+
 GameManager::GameManager() {
     auto seed = static_cast<unsigned>(std::chrono::high_resolution_clock::now().time_since_epoch().count());
     rng_.seed(seed);
@@ -13,21 +22,22 @@ void GameManager::addEvent(std::unique_ptr<BaseEvent> ev) {
 
 void GameManager::triggerRandomEvent(Kingdom &k) {
     if (events_.empty()) return;
+
     std::uniform_int_distribution<std::size_t> dist(0, events_.size() - 1);
     std::size_t idx = dist(rng_);
-    const BaseEvent* ev = events_[idx].get();
+
+    BaseEvent *ev = events_[idx].get();
     ev->print();
     ev->apply(k);
 
-    if (auto const warEv = dynamic_cast<const WarEvent*>(ev)) {
-    std::cout << "War Event cu intensitate: " << warEv->getIntensity() << "\n";
+    if (auto warEv = dynamic_cast<WarEvent *>(ev)) {
+        std::cout << "WarEvent active (detected via dynamic_cast)\n";
+    }
 }
+
+void GameManager::listEvents() const {
+    std::cout << "Events available: " << events_.size() << '\n';
+    for (const auto &e: events_) {
+        e->print();
+    }
 }
-
-
-
-
-
-
-
-
